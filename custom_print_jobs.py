@@ -69,7 +69,7 @@ def process_print_job(message):
 def main():
     consumer = KafkaConsumer(
         'PrintJobs',
-        bootstrap_servers=[':29092'],
+        bootstrap_servers=[os.getenv('BOOTSTRAP_SERVERS')],
         auto_offset_reset='earliest',
         enable_auto_commit=True,
         group_id='print_group',
