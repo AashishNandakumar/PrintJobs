@@ -1,11 +1,12 @@
-from PyPDF2 import PdfReader, PdfWriter
-import cups
 import os
+
+import cups
+from PyPDF2 import PdfReader, PdfWriter
 
 
 def print_document(file_path, printer_name, quantity=1, double_sided=False, color=False):
     conn = cups.Connection()
-    
+
     # check if the printer exists
     printers = conn.getPrinters()
     if printer_name not in printers:
